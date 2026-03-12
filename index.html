@@ -23,9 +23,9 @@
                     colors: {
                         brand: {
                             50: '#eff6ff',
-                            500: '#3b82f6',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
+                            500: '#1a479d', /* IISAブランドブルー */
+                            700: '#153a80',
+                            900: '#0f2a5c',
                         }
                     }
                 }
@@ -33,180 +33,170 @@
         }
     </script>
     <style>
-        /* バナー画像からコンテンツへの滑らかな遷移 */
+        /* バナーからコンテンツへのスムーズな直線グラデーション */
         .hero-gradient-overlay {
-            background: linear-gradient(to bottom, transparent 70%, #f9fafb 100%);
+            background: linear-gradient(to bottom, transparent 60%, #f9fafb 100%);
         }
-        /* ロゴ用フォントの微調整（サブタイトル） */
+        /* ロゴ用サブテキストのフォント調整 */
         .logo-subtext {
-            font-family: 'Arial', sans-serif;
-            letter-spacing: 0.05em;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            letter-spacing: 0.02em;
+        }
+        /* モバイルメニューのアニメーション */
+        .animate-fade-in-down {
+            animation: fadeInDown 0.3s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
 
-    <!-- ヘッダーナビゲーション -->
+    <!-- ヘッダー -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- SVGロゴ再現 -->
+                <!-- 精密再現SVGロゴ -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="https://www.iisa.or.jp/" class="flex items-center transition hover:opacity-80">
-                        <svg viewBox="0 0 280 80" class="h-10 md:h-12 w-auto" xmlns="http://www.w3.org/2000/svg">
-                            <!-- スラント(斜め)スタイルを再現 -->
-                            <g transform="skewX(-15)">
-                                <!-- I 1 -->
-                                <path d="M30 15 L50 15 L50 55 L30 55 Z" fill="#1a479d" />
-                                <path d="M25 25 L40 25 L40 32 L25 32 Z" fill="#f39200" />
-                                <!-- I 2 -->
-                                <path d="M60 15 L80 15 L80 55 L60 55 Z" fill="#1a479d" />
-                                <path d="M70 35 L85 35 L85 42 L70 42 Z" fill="#e60012" />
-                                <!-- S -->
-                                <path d="M125 15 L95 15 L90 32 L115 32 L110 55 L80 55 L85 48 L105 48 L110 38 L85 38 L90 15" fill="#1a479d" />
-                                <!-- A -->
-                                <path d="M130 55 L145 15 L165 15 L180 55 L160 55 L158 45 L142 45 L140 55 Z" fill="#1a479d" />
-                                <path d="M145 38 L160 38 L162 30 L147 30 Z" fill="#e60012" />
+                    <a href="https://www.iisa.or.jp/" class="flex items-center transition hover:opacity-80" aria-label="IISA ホーム">
+                        <svg viewBox="0 0 320 85" class="h-10 md:h-12 w-auto" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#1a479d">
+                                <!-- IISA図形全体をテキストの中央に合わせるための座標計算と、文字幅・間隔の均一化 -->
+                                <g transform="translate(92, 12) skewX(-18)">
+                                    <!-- I 1 (連続した垂直直線、幅15) -->
+                                    <rect x="0" y="0" width="15" height="45" />
+                                    <!-- I 2 (連続した垂直直線、幅15、間隔7) -->
+                                    <rect x="22" y="0" width="15" height="45" />
+                                    <!-- S (幅40、縦棒幅15、横棒高さ10、間隔7) -->
+                                    <path d="M 44 0 H 84 V 10 H 59 V 17.5 H 84 V 45 H 44 V 35 H 69 V 27.5 H 44 Z" />
+                                    <!-- A (幅60、左足幅15、右足幅15、間隔7、右下は完全に水平にカット) -->
+                                    <!-- fill-rule="evenodd" で中の穴2つを正確にくり抜く -->
+                                    <path fill-rule="evenodd" d="
+                                        M 91 0 H 121 L 151 45 H 91 Z
+                                        M 106 10 H 112.66 L 122.66 25 H 106 Z
+                                        M 106 35 H 129.33 L 136 45 H 106 Z
+                                    " />
+                                </g>
+                                <!-- 下部の組織名テキスト (text-anchor="middle"で完全に中央寄せ) -->
+                                <text x="160" y="75" text-anchor="middle" class="logo-subtext" font-size="11.5" font-weight="bold">Ishikawa Information Support Association</text>
                             </g>
-                            <!-- 下部のテキスト -->
-                            <text x="25" y="72" class="logo-subtext" font-size="10" font-weight="bold" fill="#555">Ishikawa Information Support Association</text>
                         </svg>
                     </a>
                 </div>
 
-                <!-- デスクトップメニュー (絶対パス) -->
+                <!-- PCナビゲーション -->
                 <nav class="hidden md:flex space-x-6">
                     <a href="https://www.iisa.or.jp/" class="text-gray-600 hover:text-brand-500 text-sm font-medium transition">ホーム</a>
                     <a href="https://www.iisa.or.jp/itコーディネータの活動/" class="text-gray-600 hover:text-brand-500 text-sm font-medium transition">活動について</a>
                     <a href="https://www.iisa.or.jp/セミナー-研修のご案内/" class="text-gray-600 hover:text-brand-500 text-sm font-medium transition">セミナー・研修</a>
-                    <a href="https://www.iisa.or.jp/iisaの概要/" class="text-brand-700 font-bold border-b-2 border-brand-500 text-sm">IISAの概要</a>
+                    <a href="https://www.iisa.or.jp/iisaの概要/" class="text-brand-500 font-bold border-b-2 border-brand-500 text-sm">IISAの概要</a>
                     <a href="https://www.iisa.or.jp/iisaへのご相談/" class="text-gray-600 hover:text-brand-500 text-sm font-medium transition">ご相談</a>
                 </nav>
 
                 <div class="hidden md:block">
-                    <a href="https://www.iisa.or.jp/iisa入会のご案内/" class="bg-brand-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-md hover:bg-brand-700 transition transform hover:scale-105 active:scale-95">入会案内</a>
+                    <a href="https://www.iisa.or.jp/iisa入会のご案内/" class="bg-brand-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-md hover:bg-brand-900 transition transform hover:scale-105 active:scale-95">入会案内</a>
                 </div>
 
                 <!-- モバイルメニューボタン -->
                 <div class="md:hidden">
-                    <button id="menu-btn" class="p-2 text-gray-600 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <button id="menu-btn" class="p-2 text-gray-600 focus:outline-none" aria-label="メニューを開く">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
             </div>
         </div>
         
         <!-- モバイルメニューパネル -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-2 shadow-inner">
-            <a href="https://www.iisa.or.jp/" class="block py-3 text-gray-700 font-medium border-b border-gray-50">ホーム</a>
-            <a href="https://www.iisa.or.jp/itコーディネータの活動/" class="block py-3 text-gray-700 font-medium border-b border-gray-50">ITコーディネータの活動</a>
-            <a href="https://www.iisa.or.jp/セミナー-研修のご案内/" class="block py-3 text-gray-700 font-medium border-b border-gray-50">セミナー・研修</a>
-            <a href="https://www.iisa.or.jp/iisaの概要/" class="block py-3 text-brand-700 font-bold border-b border-gray-50">IISAの概要</a>
-            <a href="https://www.iisa.or.jp/iisaへのご相談/" class="block py-3 text-gray-700 font-medium">ご相談</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-2 shadow-xl animate-fade-in-down">
+            <a href="https://www.iisa.or.jp/" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 rounded transition">ホーム</a>
+            <a href="https://www.iisa.or.jp/itコーディネータの活動/" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 rounded transition">活動について</a>
+            <a href="https://www.iisa.or.jp/セミナー-研修のご案内/" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 rounded transition">セミナー・研修</a>
+            <a href="https://www.iisa.or.jp/iisaの概要/" class="block py-3 px-4 text-brand-500 font-bold bg-brand-50 rounded transition">IISAの概要</a>
+            <a href="https://www.iisa.or.jp/iisaへのご相談/" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 rounded transition">ご相談</a>
         </div>
     </header>
 
     <!-- ヒーローバナー -->
     <div class="relative w-full bg-brand-900 leading-[0] overflow-hidden">
-        <!-- バナー画像 image_827500.jpg -->
         <img src="image_827500.jpg" 
              alt="共創でつながる石川県の未来" 
-             class="w-full h-auto object-cover lg:max-h-[500px]"
+             class="w-full h-auto object-cover lg:max-h-[550px]"
              onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Kanazawa_Station_Tsuzumi-mon_Gate.jpg/1280px-Kanazawa_Station_Tsuzumi-mon_Gate.jpg';">
              
-        <!-- バナー下部のグラデーションオーバーレイ (直線的な接続) -->
+        <!-- バナー下部のフェード（直線的な境界） -->
         <div class="absolute inset-0 hero-gradient-overlay pointer-events-none"></div>
     </div>
 
     <!-- メインコンテンツ -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow">
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex-grow text-gray-800">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
             
-            <!-- メインエリア -->
+            <!-- 左側：メインエリア -->
             <div class="lg:col-span-3 space-y-10">
-                <!-- 導入セクション -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                    <h1 class="text-2xl font-bold border-l-4 border-brand-500 pl-4 mb-4 text-gray-800 tracking-tight">IISAの概要ご紹介</h1>
-                    <p class="text-gray-600 leading-relaxed">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                    <h1 class="text-3xl font-bold border-l-6 border-brand-500 pl-6 mb-6 text-gray-800 tracking-tight">IISAの概要ご紹介</h1>
+                    <p class="text-gray-600 text-lg leading-relaxed">
                         このページでは当協会の会員・役員、IISAの関連諸団体等のホームページ、会員所属企業のホームページを紹介しています。各リンクから詳細情報をご覧ください。
                     </p>
                 </div>
 
-                <!-- メニューグリッド (絶対パス) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <a href="https://www.iisa.or.jp/iisaの概要/iisaとは/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500 transition-colors">IISAとは</h3>
-                        <p class="text-sm text-gray-500">NPO法人石川県情報化支援協会（IISA）の概要をご紹介しています。</p>
+                <!-- メニューカードグリッド -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="https://www.iisa.or.jp/iisaの概要/iisaとは/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                        <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">IISAとは</h3>
+                        <p class="text-gray-500 leading-snug">協会の設立趣旨や活動内容、石川県における役割をご紹介しています。</p>
                     </a>
-                    <a href="https://www.iisa.or.jp/iisaの概要/定-款/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500 transition-colors">定 款</h3>
-                        <p class="text-sm text-gray-500">当協会の運営上の基本規則である定款を掲載しています。</p>
+                    <a href="https://www.iisa.or.jp/iisaの概要/定-款/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                        <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">定 款</h3>
+                        <p class="text-gray-500 leading-snug">当協会の運営上の基本規則である定款を掲載しています。</p>
                     </a>
-                    <a href="https://www.iisa.or.jp/iisaの概要/iisa会員の紹介/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500">IISA会員の紹介</h3>
-                        <p class="text-sm text-gray-500">所属するITコーディネータ等の専門家名簿です。</p>
+                    <a href="https://www.iisa.or.jp/iisaの概要/iisa会員の紹介/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                        <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">IISA会員の紹介</h3>
+                        <p class="text-gray-500 leading-snug">所属するITコーディネータ等の専門家名簿をご確認いただけます。</p>
                     </a>
-                    <a href="https://www.iisa.or.jp/iisaの概要/iisa役員の紹介/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500">IISA役員の紹介</h3>
-                        <p class="text-sm text-gray-500">協会の役員および顧問陣をご紹介しています。</p>
+                    <a href="https://www.iisa.or.jp/iisaの概要/iisa役員の紹介/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                        <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">IISA役員の紹介</h3>
+                        <p class="text-gray-500 leading-snug">協会の円滑な運営を担う役員および顧問陣をご紹介します。</p>
                     </a>
-                    <a href="https://www.iisa.or.jp/iisaの概要/関連諸団体等のurl/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500">関連諸団体等のURL紹介</h3>
-                        <p class="text-sm text-gray-500">行政、大学、支援機関、金融機関等の外部リンク集です。</p>
+                    <a href="https://www.iisa.or.jp/iisaの概要/関連諸団体等のurl/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                        <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">関連諸団体等のURL紹介</h3>
+                        <p class="text-gray-500 leading-snug">行政、大学、支援機関、金融機関等の外部リンク集です。</p>
                     </a>
-                    <a href="https://www.iisa.or.jp/iisaの概要/貸借対照表/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500">貸借対照表</h3>
-                        <p class="text-sm text-gray-500">財務状況報告（貸借対照表）を公開しています。</p>
+                    <a href="https://www.iisa.or.jp/iisaの概要/貸借対照表/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                        <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">貸借対照表</h3>
+                        <p class="text-gray-500 leading-snug">当協会の財務報告資料を公開（ディスクロージャー）しています。</p>
                     </a>
                 </div>
 
                 <!-- 連絡先セクション -->
-                <div class="bg-brand-900 rounded-3xl p-10 text-white text-center shadow-lg relative overflow-hidden">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-white/5 rounded-full"></div>
-                    <div class="relative z-10 space-y-3">
-                        <h3 class="text-2xl font-bold tracking-wider">NPO法人 石川県情報化支援協会</h3>
-                        <p class="text-lg font-medium">理事長　林 良隆</p>
-                        <p class="text-sm opacity-80 pt-2">〒920-0922 石川県金沢市横山町21-16</p>
-                        <a href="mailto:info@iisa.or.jp" class="inline-block text-brand-500 font-bold hover:text-white transition duration-200 border-b border-brand-500">info@iisa.or.jp</a>
+                <div class="bg-brand-900 rounded-3xl p-12 text-white text-center shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-48 h-48 bg-white/5 rounded-full"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 tracking-wider">NPO法人 石川県情報化支援協会</h3>
+                        <p class="text-xl font-medium mb-6">理事長　林 良隆</p>
+                        <p class="text-brand-100 opacity-80 mb-2">〒920-0922 石川県金沢市横山町21-16</p>
+                        <a href="mailto:info@iisa.or.jp" class="inline-block text-brand-500 font-bold hover:text-white transition duration-200 border-b-2 border-brand-500 text-lg">info@iisa.or.jp</a>
                     </div>
                 </div>
             </div>
 
-            <!-- サイドバー (レスポンシブ：モバイル2列 / PC1列) -->
-            <aside class="space-y-6">
-                <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100">
-                    <h3 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-4 border-b pb-2">関連リンク集</h3>
-                    <div class="grid grid-cols-2 lg:grid-cols-1 gap-4 items-center">
-                        <a href="http://www.itc.or.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i4ed467a3c1b4ff6b/version/1399421329/image.png" class="w-full h-auto object-contain" alt="ITC協会">
-                        </a>
-                        <a href="http://www.itc.or.jp/authorize/training/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i36462b2aa30143d9/version/1472630245/image.jpg" class="w-full h-auto object-contain" alt="ITC研修">
-                        </a>
-                        <a href="https://www.itc.or.jp/about/casestudy/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i5e4b6c0493d26d53/version/1555806803/image.png" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="ITC事例">
-                        </a>
-                        <a href="http://www.itc.or.jp/kakushinit/index.html" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=179x10000:format=gif/path/s54edef6a6eb48c06/image/iceb3c0fb04cd0f27/version/1432130855/image.gif" class="w-full h-auto object-contain" alt="ITC届出組織">
-                        </a>
-                        <a href="http://www.itc.or.jp/authorize/exam/index.html" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i98706d601f387bc5/version/1445430064/image.png" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="ITC試験">
-                        </a>
-                        <a href="https://www.iisa.or.jp/itコーディネータの活動/お役立ち情報提供/" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=165x10000:format=jpg/path/s54edef6a6eb48c06/image/iced1c4914cbd51de/version/1407474950/image.jpg" class="w-full h-auto object-contain shadow-sm" alt="お役立ち情報">
-                        </a>
-                        <a href="http://www.meti.go.jp/policy/it_policy/it-keiei/award/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/ib9ecc23a754bb2f9/version/1472254876/image.png" class="w-full h-auto object-contain" alt="IT経営アワード">
-                        </a>
-                        <a href="http://www.ipa.go.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/ia184811b32c51fa4/version/1406980539/image.gif" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="IPA">
-                        </a>
-                        <a href="http://www.compass-it.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=179x10000:format=jpg/path/s54edef6a6eb48c06/image/i3f9e8d67d6b34326/version/1406980466/image.jpg" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="Compass IT">
-                        </a>
-                        <a href="http://www.smb-cloud.org/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=160x10000:format=png/path/s54edef6a6eb48c06/image/ia08d60d9b4bce43c/version/1406980633/image.png" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="中小企業クラウド">
-                        </a>
+            <!-- 右側：サイドバー (レスポンシブ：スマホ2列 / PC1列) -->
+            <aside class="space-y-8">
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                    <h3 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-6 border-b border-gray-50 pb-3">関連リンク</h3>
+                    <div class="grid grid-cols-2 lg:grid-cols-1 gap-5 items-center">
+                        <a href="http://www.itc.or.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i4ed467a3c1b4ff6b/version/1399421329/image.png" class="w-full h-auto object-contain" alt="ITC協会"></a>
+                        <a href="http://www.itc.or.jp/authorize/training/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i36462b2aa30143d9/version/1472630245/image.jpg" class="w-full h-auto object-contain" alt="ITC研修"></a>
+                        <a href="https://www.itc.or.jp/about/casestudy/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i5e4b6c0493d26d53/version/1555806803/image.png" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="ITC事例"></a>
+                        <a href="http://www.itc.or.jp/kakushinit/index.html" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=179x10000:format=gif/path/s54edef6a6eb48c06/image/iceb3c0fb04cd0f27/version/1432130855/image.gif" class="w-full h-auto object-contain" alt="ITC届出組織"></a>
+                        <a href="http://www.itc.or.jp/authorize/exam/index.html" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i98706d601f387bc5/version/1445430064/image.png" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="ITC試験"></a>
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/お役立ち情報提供/" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=165x10000:format=jpg/path/s54edef6a6eb48c06/image/iced1c4914cbd51de/version/1407474950/image.jpg" class="w-full h-auto object-contain shadow-sm" alt="お役立ち情報"></a>
+                        <a href="http://www.meti.go.jp/policy/it_policy/it-keiei/award/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/ib9ecc23a754bb2f9/version/1472254876/image.png" class="w-full h-auto object-contain" alt="IT経営アワード"></a>
+                        <a href="http://www.ipa.go.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/ia184811b32c51fa4/version/1406980539/image.gif" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="IPA"></a>
+                        <a href="http://www.compass-it.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=179x10000:format=jpg/path/s54edef6a6eb48c06/image/i3f9e8d67d6b34326/version/1406980466/image.jpg" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="Compass IT"></a>
+                        <a href="http://www.smb-cloud.org/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.05] duration-200"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=160x10000:format=png/path/s54edef6a6eb48c06/image/ia08d60d9b4bce43c/version/1406980633/image.png" class="w-full h-auto object-contain border border-gray-100 rounded-sm" alt="中小企業クラウド"></a>
                     </div>
                 </div>
             </aside>
@@ -214,21 +204,27 @@
     </main>
 
     <!-- フッター -->
-    <footer class="bg-brand-900 text-white py-12 mt-auto">
+    <footer class="bg-brand-900 text-white py-16 mt-auto">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="flex justify-center items-center gap-2 mb-6 opacity-70">
-                <!-- フッター用の白抜きSVGロゴ -->
-                <svg viewBox="0 0 280 60" class="h-8 md:h-10 w-auto" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="skewX(-15)">
-                        <path d="M30 5 L50 5 L50 45 L30 45 Z" fill="white" />
-                        <path d="M60 5 L80 5 L80 45 L60 45 Z" fill="white" />
-                        <path d="M125 5 L95 5 L90 22 L115 22 L110 45 L80 45 L85 38 L105 38 L110 28 L85 28 L90 5" fill="white" />
-                        <path d="M130 45 L145 5 L165 5 L180 45 L160 45 L158 35 L142 35 L140 45 Z" fill="white" />
+            <div class="flex justify-center items-center gap-2 mb-8">
+                <!-- フッター用SVGロゴ (白抜き) -->
+                <svg viewBox="0 0 320 85" class="h-10 md:h-12 w-auto" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="white">
+                        <g transform="translate(92, 12) skewX(-18)">
+                            <rect x="0" y="0" width="15" height="45" />
+                            <rect x="22" y="0" width="15" height="45" />
+                            <path d="M 44 0 H 84 V 10 H 59 V 17.5 H 84 V 45 H 44 V 35 H 69 V 27.5 H 44 Z" />
+                            <path fill-rule="evenodd" d="
+                                M 91 0 H 121 L 151 45 H 91 Z
+                                M 106 10 H 112.66 L 122.66 25 H 106 Z
+                                M 106 35 H 129.33 L 136 45 H 106 Z
+                            " />
+                        </g>
+                        <text x="160" y="75" text-anchor="middle" class="logo-subtext" font-size="11.5" font-weight="bold" fill="white" opacity="0.8">Ishikawa Information Support Association</text>
                     </g>
-                    <text x="30" y="58" class="logo-subtext" font-size="8" font-weight="bold" fill="white" opacity="0.8">Ishikawa Information Support Association</text>
                 </svg>
             </div>
-            <p class="text-[10px] opacity-40 font-light tracking-[0.3em]">Copyright (C) Ishikawa Information Support Association All Rights Reserved.</p>
+            <p class="text-xs opacity-50 font-light tracking-[0.4em] uppercase">Copyright (C) Ishikawa Information Support Association All Rights Reserved.</p>
         </div>
     </footer>
 
