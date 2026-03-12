@@ -37,6 +37,11 @@
         .hero-gradient-overlay {
             background: linear-gradient(to bottom, transparent 70%, #f9fafb 100%);
         }
+        /* ロゴ用フォントの微調整（サブタイトル） */
+        .logo-subtext {
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 0.05em;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
@@ -45,11 +50,27 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- ロゴ -->
+                <!-- SVGロゴ再現 -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="https://www.iisa.or.jp/" class="flex items-center gap-2 text-brand-900 transition hover:opacity-80">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        <span class="font-bold text-xl tracking-wider">IISA</span>
+                    <a href="https://www.iisa.or.jp/" class="flex items-center transition hover:opacity-80">
+                        <svg viewBox="0 0 280 80" class="h-10 md:h-12 w-auto" xmlns="http://www.w3.org/2000/svg">
+                            <!-- スラント(斜め)スタイルを再現 -->
+                            <g transform="skewX(-15)">
+                                <!-- I 1 -->
+                                <path d="M30 15 L50 15 L50 55 L30 55 Z" fill="#1a479d" />
+                                <path d="M25 25 L40 25 L40 32 L25 32 Z" fill="#f39200" />
+                                <!-- I 2 -->
+                                <path d="M60 15 L80 15 L80 55 L60 55 Z" fill="#1a479d" />
+                                <path d="M70 35 L85 35 L85 42 L70 42 Z" fill="#e60012" />
+                                <!-- S -->
+                                <path d="M125 15 L95 15 L90 32 L115 32 L110 55 L80 55 L85 48 L105 48 L110 38 L85 38 L90 15" fill="#1a479d" />
+                                <!-- A -->
+                                <path d="M130 55 L145 15 L165 15 L180 55 L160 55 L158 45 L142 45 L140 55 Z" fill="#1a479d" />
+                                <path d="M145 38 L160 38 L162 30 L147 30 Z" fill="#e60012" />
+                            </g>
+                            <!-- 下部のテキスト -->
+                            <text x="25" y="72" class="logo-subtext" font-size="10" font-weight="bold" fill="#555">Ishikawa Information Support Association</text>
+                        </svg>
                     </a>
                 </div>
 
@@ -77,17 +98,17 @@
         
         <!-- モバイルメニューパネル -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-2 shadow-inner">
-            <a href="https://www.iisa.or.jp/" class="block py-3 text-gray-700 font-medium">ホーム</a>
-            <a href="https://www.iisa.or.jp/itコーディネータの活動/" class="block py-3 text-gray-700 font-medium">ITコーディネータの活動</a>
-            <a href="https://www.iisa.or.jp/セミナー-研修のご案内/" class="block py-3 text-gray-700 font-medium">セミナー・研修</a>
-            <a href="https://www.iisa.or.jp/iisaの概要/" class="block py-3 text-brand-700 font-bold">IISAの概要</a>
+            <a href="https://www.iisa.or.jp/" class="block py-3 text-gray-700 font-medium border-b border-gray-50">ホーム</a>
+            <a href="https://www.iisa.or.jp/itコーディネータの活動/" class="block py-3 text-gray-700 font-medium border-b border-gray-50">ITコーディネータの活動</a>
+            <a href="https://www.iisa.or.jp/セミナー-研修のご案内/" class="block py-3 text-gray-700 font-medium border-b border-gray-50">セミナー・研修</a>
+            <a href="https://www.iisa.or.jp/iisaの概要/" class="block py-3 text-brand-700 font-bold border-b border-gray-50">IISAの概要</a>
             <a href="https://www.iisa.or.jp/iisaへのご相談/" class="block py-3 text-gray-700 font-medium">ご相談</a>
         </div>
     </header>
 
     <!-- ヒーローバナー -->
     <div class="relative w-full bg-brand-900 leading-[0] overflow-hidden">
-        <!-- ご指定のバナー画像 -->
+        <!-- バナー画像 image_827500.jpg -->
         <img src="image_827500.jpg" 
              alt="共創でつながる石川県の未来" 
              class="w-full h-auto object-cover lg:max-h-[500px]"
@@ -114,11 +135,11 @@
                 <!-- メニューグリッド (絶対パス) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <a href="https://www.iisa.or.jp/iisaの概要/iisaとは/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500">IISAとは</h3>
+                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500 transition-colors">IISAとは</h3>
                         <p class="text-sm text-gray-500">NPO法人石川県情報化支援協会（IISA）の概要をご紹介しています。</p>
                     </a>
                     <a href="https://www.iisa.or.jp/iisaの概要/定-款/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500">定 款</h3>
+                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-500 transition-colors">定 款</h3>
                         <p class="text-sm text-gray-500">当協会の運営上の基本規則である定款を掲載しています。</p>
                     </a>
                     <a href="https://www.iisa.or.jp/iisaの概要/iisa会員の紹介/" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-md transition-all group duration-300">
@@ -155,7 +176,6 @@
             <aside class="space-y-6">
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100">
                     <h3 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-4 border-b pb-2">関連リンク集</h3>
-                    <!-- スマホ環境で2列に並ぶ設定 -->
                     <div class="grid grid-cols-2 lg:grid-cols-1 gap-4 items-center">
                         <a href="http://www.itc.or.jp/" target="_blank" class="hover:opacity-80 transition transform hover:scale-[1.03] duration-200">
                             <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s54edef6a6eb48c06/image/i4ed467a3c1b4ff6b/version/1399421329/image.png" class="w-full h-auto object-contain" alt="ITC協会">
@@ -197,8 +217,16 @@
     <footer class="bg-brand-900 text-white py-12 mt-auto">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-2 mb-6 opacity-70">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                <span class="font-bold tracking-tighter uppercase text-lg">IISA</span>
+                <!-- フッター用の白抜きSVGロゴ -->
+                <svg viewBox="0 0 280 60" class="h-8 md:h-10 w-auto" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="skewX(-15)">
+                        <path d="M30 5 L50 5 L50 45 L30 45 Z" fill="white" />
+                        <path d="M60 5 L80 5 L80 45 L60 45 Z" fill="white" />
+                        <path d="M125 5 L95 5 L90 22 L115 22 L110 45 L80 45 L85 38 L105 38 L110 28 L85 28 L90 5" fill="white" />
+                        <path d="M130 45 L145 5 L165 5 L180 45 L160 45 L158 35 L142 35 L140 45 Z" fill="white" />
+                    </g>
+                    <text x="30" y="58" class="logo-subtext" font-size="8" font-weight="bold" fill="white" opacity="0.8">Ishikawa Information Support Association</text>
+                </svg>
             </div>
             <p class="text-[10px] opacity-40 font-light tracking-[0.3em]">Copyright (C) Ishikawa Information Support Association All Rights Reserved.</p>
         </div>
