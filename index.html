@@ -104,7 +104,7 @@
         </div>
         
         <!-- モバイル用 メニューパネル -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-2 shadow-xl absolute w-full">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-2 shadow-xl absolute w-full z-40">
             <a href="#home" data-target="tab-home" class="nav-link block py-3 px-4 text-brand-500 font-bold bg-brand-50 rounded transition">ホーム</a>
             <a href="#activity" data-target="tab-activity" class="nav-link block py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 rounded transition">活動について</a>
             <a href="#seminar" data-target="tab-seminar" class="nav-link block py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 rounded transition">セミナー・研修</a>
@@ -139,20 +139,20 @@
                     <section>
                         <h2 class="text-2xl font-bold border-l-6 border-brand-500 pl-4 mb-6 text-gray-800 tracking-tight">What's NEW</h2>
                         <ul class="space-y-3">
-                            <li class="flex flex-col md:flex-row md:items-center p-5 bg-white rounded-xl shadow-sm border border-brand-100 hover:shadow-md transition">
+                            <li class="flex flex-col md:flex-row md:items-center p-5 bg-white rounded-xl shadow-sm border border-brand-100 hover:shadow-md transition cursor-pointer" onclick="document.querySelector('#event-detail').scrollIntoView({behavior: 'smooth'})">
                                 <span class="text-brand-500 font-bold w-28 flex-shrink-0">R8/2/25</span>
-                                <a href="#event-detail" class="flex-grow text-gray-700 hover:text-brand-500 font-medium md:text-lg transition-colors">2025年度第10回ITC研修会のご案内</a>
+                                <span class="flex-grow text-gray-700 hover:text-brand-500 font-medium md:text-lg transition-colors">2025年度第10回ITC研修会のご案内</span>
                                 <span class="inline-block mt-2 md:mt-0 bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full self-start md:self-auto tracking-widest">NEW!</span>
                             </li>
-                            <li class="flex flex-col md:flex-row md:items-center p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <li class="flex flex-col md:flex-row md:items-center p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer">
                                 <span class="text-gray-500 font-bold w-28 flex-shrink-0">R8/2/7</span>
-                                <a href="#" class="flex-grow text-gray-700 hover:text-brand-500 font-medium md:text-lg transition-colors">2025年度第9回ITC研修会のご案内</a>
+                                <span class="flex-grow text-gray-700 hover:text-brand-500 font-medium md:text-lg transition-colors">2025年度第9回ITC研修会のご案内</span>
                             </li>
                         </ul>
                     </section>
 
                     <!-- イベント詳細セクション -->
-                    <section id="event-detail" class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+                    <section id="event-detail" class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-gray-100 pb-4">2025年度第10回ITC研修会</h3>
                         <p class="mb-8 text-gray-600 leading-relaxed text-lg">
                             2025年度第10回ITC研修会（IISAホームページレビュー会、ビジネス情報交換会）を実施いたします。ITコーディネータ資格保有者の方の参加は、2時間分1ポイントが獲得できます。打合せ参加は、対面でのオフライン開催となります。
@@ -165,14 +165,14 @@
                             
                             <div class="flex flex-col md:flex-row"><span class="font-bold w-32 flex-shrink-0 text-brand-900 mb-2 md:mb-0">◆内容：</span>
                                 <div class="space-y-4 w-full">
-                                    <div class="bg-white p-4 rounded-xl border border-gray-200">
+                                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                                         <p class="font-bold text-brand-500 mb-2">＃ 第1部：IISA HPレビュー会、内容の協議</p>
                                         <p class="text-sm leading-relaxed">
                                             3月末（今年度中）早期公開に向けた作業推進。<br>
                                             今回の検討会で大枠を決定、4月初旬に微調整する実施スケジュール。
                                         </p>
                                     </div>
-                                    <div class="bg-white p-4 rounded-xl border border-gray-200">
+                                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                                         <p class="font-bold text-brand-500 mb-2">＃ 第2部：ビジネスマッチング</p>
                                         <p class="text-sm leading-relaxed">
                                             自分自身が進めている案件やイベントを、対象企業・団体のニーズを得意分野とする参加者と共有し、支援を厚くしていく。
@@ -209,7 +209,165 @@
                 </div>
 
                 <!-- ========================================= -->
-                <!-- [タブ 2] IISAの概要 コンテンツ              -->
+                <!-- [タブ 2] 活動について コンテンツ             -->
+                <!-- ========================================= -->
+                <div id="tab-activity" class="tab-content hidden space-y-10">
+                    <!-- トップ紹介文 -->
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <h1 class="text-3xl font-bold border-l-6 border-brand-500 pl-6 mb-6 text-gray-800 tracking-tight">ITコーディネータの活動</h1>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            このページでは、IISA会員及び全国のITコーディネータの活動事例をとおして、ITコーディネータの実践活動を紹介しています。
+                        </p>
+                    </div>
+
+                    <!-- 活動メニューカードグリッド -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/itコーディネータとは/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">ITコーディネータとは</h3>
+                            <p class="text-gray-500 leading-snug">ITコーディネータは経済産業省推進資格です。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/itコーディネータ支援事例/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">ITコーディネータ支援事例</h3>
+                            <p class="text-gray-500 leading-snug">IISA会員及び全国のITコーディネータのユーザ企業支援事例を紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/セミナー-研修/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">セミナー・研修</h3>
+                            <p class="text-gray-500 leading-snug">IISAが実施しているオープンセミナーや会員向けの研修を紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/中小企業it経営力大賞-応募支援/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">「中小企業IT経営力大賞」応募支援</h3>
+                            <p class="text-gray-500 leading-snug">IISA会員が支援し、大賞や優秀賞等を受賞した事例を紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/ものづくり-商業-サービス革新補助金-応募申請支援/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">「ものづくり補助金」応募申請支援</h3>
+                            <p class="text-gray-500 leading-snug">事業プラン作成から申請書の書き方までを支援します。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/itコーディネータの活動/お役立ち情報提供/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">お役立ち情報提供</h3>
+                            <p class="text-gray-500 leading-snug">経営やITのこと、メディア掲載情報など、お役立ち情報を提供します。</p>
+                        </a>
+                    </div>
+
+                    <!-- 義援金のお礼セクション -->
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-brand-100 space-y-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-4 mb-6">
+                            <h2 class="text-xl md:text-2xl font-bold text-gray-800">令和6年能登半島地震に係る災害義援金のお礼につきまして</h2>
+                            <span class="text-gray-500 font-medium whitespace-nowrap mt-2 md:mt-0">令和6年4月10日</span>
+                        </div>
+                        <div class="text-gray-600 leading-relaxed space-y-4">
+                            <p>令和6年（2024年）1月に発生した能登地方を震源とする地震で被災された方々を支援するための義援金につきまして、多数の個人／団体様からご賛同を頂き、義援金を拠出していただきました。誠にありがとうございました。</p>
+                            <p>４０の個人／団体様からご支援をいただき、総額１，０５２，０００円となりました。<br>
+                            利子を含め１，０５２，００９円を石川県様に拠出させていただきましたことをご報告いたします。義援金は石川県、市町を通じて被災者の皆様にお届けられます。</p>
+                            <p>被害の大きかった能登地区は、水道復旧が完了していない地区も多く、被災した家屋、道路、トンネル、住居近くの山林等が被災直後と変わらない様子で、復旧に向けての手が付けられていないところも多く、完全復旧にはまだまだ時間がかかりそうです。<br>
+                            今後も、継続的にできるところから協力／支援を続けていきたいと考えております。</p>
+                            <p>急な依頼にもかかわらず、本当に多くの方々からご支援を頂き感謝の気持ちでいっぱいです。重ねてお礼を申し上げます。</p>
+                            <p>石川県発行の現金領収書、収支報告書、義援金を拠出していただいた方の一覧を掲示させていただきます。</p>
+                        </div>
+                        
+                        <h3 class="font-bold text-lg mt-8 mb-4 border-l-4 border-brand-500 pl-3">関連資料のダウンロード</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <a href="https://www.iisa.or.jp/app/download/12113131691/%E7%BE%A9%E6%8F%B4%E9%87%91%E3%81%AE%E3%81%8A%E7%A4%BC.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-brand-50 hover:shadow-md border border-gray-200 transition group">
+                                <svg class="w-8 h-8 text-red-500 mr-3 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                <div>
+                                    <div class="font-bold text-gray-800 text-sm group-hover:text-brand-600 transition">義援金のお礼</div>
+                                    <div class="text-xs text-gray-500">PDFファイル</div>
+                                </div>
+                            </a>
+                            <a href="https://www.iisa.or.jp/app/download/12113131791/%E5%8F%8E%E6%94%AF%E5%A0%B1%E5%91%8A%E6%9B%B8%E6%A1%88.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-brand-50 hover:shadow-md border border-gray-200 transition group">
+                                <svg class="w-8 h-8 text-red-500 mr-3 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                <div>
+                                    <div class="font-bold text-gray-800 text-sm group-hover:text-brand-600 transition">収支報告書案</div>
+                                    <div class="text-xs text-gray-500">PDFファイル</div>
+                                </div>
+                            </a>
+                            <a href="https://www.iisa.or.jp/app/download/12113131891/%E7%BE%A9%E6%8F%B4%E9%87%91%E3%81%AE%E9%A0%98%E5%8F%8E%E8%A8%BC%E6%9B%B8.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-brand-50 hover:shadow-md border border-gray-200 transition group">
+                                <svg class="w-8 h-8 text-red-500 mr-3 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                <div>
+                                    <div class="font-bold text-gray-800 text-sm group-hover:text-brand-600 transition">義援金の領収証書</div>
+                                    <div class="text-xs text-gray-500">PDFファイル</div>
+                                </div>
+                            </a>
+                            <a href="https://www.iisa.or.jp/app/download/12113131991/%E5%88%A5%E8%A1%A8%EF%BC%91%E7%BE%A9%E6%8F%B4%E9%87%91%E6%8B%A0%E5%87%BA%E8%80%85%E4%B8%80%E8%A6%A7.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-brand-50 hover:shadow-md border border-gray-200 transition group">
+                                <svg class="w-8 h-8 text-red-500 mr-3 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                <div>
+                                    <div class="font-bold text-gray-800 text-sm group-hover:text-brand-600 transition">別表１義援金拠出者一覧</div>
+                                    <div class="text-xs text-gray-500">PDFファイル</div>
+                                </div>
+                            </a>
+                            <a href="https://www.iisa.or.jp/app/download/12146586591/%E7%9F%B3%E5%B7%9D%E7%9C%8C%E3%81%8B%E3%82%89%E3%81%AE%E7%A4%BC%E7%8A%B62024%E5%B9%B46%E6%9C%88.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-brand-50 hover:shadow-md border border-gray-200 transition group">
+                                <svg class="w-8 h-8 text-red-500 mr-3 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                                <div>
+                                    <div class="font-bold text-gray-800 text-sm group-hover:text-brand-600 transition">石川県からの礼状</div>
+                                    <div class="text-xs text-gray-500">PDFファイル</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 義援金のお願い(受付終了)セクション -->
+                    <div class="bg-gray-50 p-8 md:p-10 rounded-3xl shadow-inner border border-gray-200 space-y-6 opacity-80">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-300 pb-4 mb-6">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-700">能登半島地震被災者への義援金ご協力のお願い <span class="text-red-500 ml-2">(受付終了)</span></h2>
+                            <span class="text-gray-500 font-medium whitespace-nowrap mt-2 md:mt-0">令和6年1月15日</span>
+                        </div>
+                        <div class="text-gray-600 leading-relaxed text-sm space-y-4">
+                            <p>この度石川県能登地方を震源として発生した地震にて、被害に遭われた方々に謹んでお見舞い申し上げますとともに一日も早い復興をお祈り申し上げます。<br>
+                            いくらかでも被災者のためになることを願い、下記要領にて義援金を皆様から受け付けることにしました、ご協力のほど、よろしくお願いいたします。</p>
+                            <p class="font-bold text-brand-700">※令和6年3月29日をもって義援金の受付は終了いたしました。多くの皆様からの温かいご支援、誠にありがとうございました。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================= -->
+                <!-- [タブ 3] セミナー・研修 コンテンツ           -->
+                <!-- ========================================= -->
+                <div id="tab-seminar" class="tab-content hidden space-y-10">
+                    <!-- トップ紹介文 -->
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <h1 class="text-3xl font-bold border-l-6 border-brand-500 pl-6 mb-6 text-gray-800 tracking-tight">セミナー・研修のご案内</h1>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            このページでは、IISAが実施しているユーザ企業、支援機関、ITベンダーの方々向けのセミナー・研修や会員向けのセミナー・研修を紹介しています。
+                        </p>
+                    </div>
+
+                    <!-- セミナーメニューカードグリッド -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <a href="https://www.iisa.or.jp/セミナー-研修のご案内/itコーディネータ認定ケース研修-金沢開催/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">ITコーディネータ認定ケース研修（金沢開催）</h3>
+                            <p class="text-gray-500 leading-snug">ITコーディネータになるための必須条件となっている6日間のケース研修の内容を紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/セミナー-研修のご案内/オープンセミナー-交流会等/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">オープンセミナー・研修</h3>
+                            <p class="text-gray-500 leading-snug">ユーザ企業、支援機関、ITベンダー等の方々も自由に参加できるセミナー・研修、カンファレンスを紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/セミナー-研修のご案内/itc研修/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">会員向けセミナー・研修</h3>
+                            <p class="text-gray-500 leading-snug">IISAの会員向けの勉強会セミナー・研修を紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/セミナー-研修のご案内/共催-後援セミナー/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">セミナー参加募集中</h3>
+                            <p class="text-gray-500 leading-snug">ただいま募集中のオープンセミナー及びIISA会員向けのセミナーの内容を詳しく紹介しています。</p>
+                        </a>
+                        <a href="https://www.iisa.or.jp/セミナー-研修のご案内/itコーディネータになるには/" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-500 hover:shadow-xl transition-all group duration-300 transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                            <h3 class="font-bold text-xl mb-3 group-hover:text-brand-500">ITコーディネータになるには</h3>
+                            <p class="text-gray-500 leading-snug">ITコーディネータになるための二つの条件（ITC試験、ケース研修）を詳しく紹介しています。</p>
+                        </a>
+                    </div>
+                    
+                    <!-- 連絡先セクション (他タブとデザイン統一) -->
+                    <div class="bg-brand-900 rounded-3xl p-12 text-white text-center shadow-2xl relative overflow-hidden mt-8">
+                        <div class="absolute -top-10 -left-10 w-48 h-48 bg-white/5 rounded-full pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 tracking-wider">NPO法人 石川県情報化支援協会</h3>
+                            <p class="text-xl font-medium mb-6">理事長　林 良隆</p>
+                            <p class="text-brand-100 opacity-80 mb-2">〒920-0922 石川県金沢市横山町21-16</p>
+                            <a href="mailto:info@iisa.or.jp" class="inline-block text-brand-500 font-bold hover:text-white transition duration-200 border-b-2 border-brand-500 text-lg">info@iisa.or.jp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================= -->
+                <!-- [タブ 4] IISAの概要 コンテンツ              -->
                 <!-- ========================================= -->
                 <div id="tab-overview" class="tab-content hidden space-y-10">
                     <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
@@ -245,40 +403,234 @@
                             <p class="text-gray-500 leading-snug">当協会の財務報告資料を公開（ディスクロージャー）しています。</p>
                         </a>
                     </div>
+                    
+                    <!-- 連絡先セクション (他タブとデザイン統一) -->
+                    <div class="bg-brand-900 rounded-3xl p-12 text-white text-center shadow-2xl relative overflow-hidden mt-8">
+                        <div class="absolute -top-10 -left-10 w-48 h-48 bg-white/5 rounded-full pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 tracking-wider">NPO法人 石川県情報化支援協会</h3>
+                            <p class="text-xl font-medium mb-6">理事長　林 良隆</p>
+                            <p class="text-brand-100 opacity-80 mb-2">〒920-0922 石川県金沢市横山町21-16</p>
+                            <a href="mailto:info@iisa.or.jp" class="inline-block text-brand-500 font-bold hover:text-white transition duration-200 border-b-2 border-brand-500 text-lg">info@iisa.or.jp</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ========================================= -->
-                <!-- [タブ 3以降] 準備中 コンテンツ              -->
+                <!-- [タブ 5] ご相談 コンテンツ                 -->
                 <!-- ========================================= -->
-                <div id="tab-activity" class="tab-content hidden">
-                    <div class="bg-white p-16 rounded-3xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-5xl mb-4">🚧</div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">活動について</h2>
-                        <p class="text-gray-500">こちらのコンテンツは現在準備中です。</p>
+                <div id="tab-contact" class="tab-content hidden space-y-10">
+                    <!-- トップ紹介文 -->
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <h1 class="text-3xl font-bold border-l-6 border-brand-500 pl-6 mb-6 text-gray-800 tracking-tight">IISAへのご相談</h1>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                            IT、経営、人材育成、公的支援制度のことなど、どんなことでもお気軽にお問い合わせください。ITコーディネータは皆さんのかかりつけ医です。
+                        </p>
+                        <p class="text-gray-500">以下の相談用フォームに必要事項を入力して、送信してください。</p>
                     </div>
-                </div>
-                
-                <div id="tab-seminar" class="tab-content hidden">
-                    <div class="bg-white p-16 rounded-3xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-5xl mb-4">🚧</div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">セミナー・研修</h2>
-                        <p class="text-gray-500">こちらのコンテンツは現在準備中です。</p>
+
+                    <!-- お問い合わせフォーム -->
+                    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-brand-100 relative">
+                        <!-- ※静的HTMLのためactionは空にしています。システムに合わせて設定してください -->
+                        <form action="#" method="POST" class="space-y-6">
+                            <!-- 氏名 -->
+                            <div>
+                                <label for="contact-name" class="block text-sm font-bold text-gray-700 mb-2">お名前 <span class="text-red-500 ml-1">*</span></label>
+                                <input type="text" id="contact-name" name="contact-name" required class="w-full md:w-2/3 lg:w-1/2 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-gray-50 hover:bg-white focus:bg-white">
+                            </div>
+                            
+                            <!-- 会社名 -->
+                            <div>
+                                <label for="contact-company" class="block text-sm font-bold text-gray-700 mb-2">所属の会社・事業所名 <span class="text-red-500 ml-1">*</span></label>
+                                <input type="text" id="contact-company" name="contact-company" required class="w-full md:w-2/3 lg:w-1/2 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-gray-50 hover:bg-white focus:bg-white">
+                            </div>
+                            
+                            <!-- 役職・部署名 -->
+                            <div>
+                                <label for="contact-dept" class="block text-sm font-bold text-gray-700 mb-2">役職・部署名 <span class="text-red-500 ml-1">*</span></label>
+                                <input type="text" id="contact-dept" name="contact-dept" required class="w-full md:w-2/3 lg:w-1/2 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-gray-50 hover:bg-white focus:bg-white">
+                            </div>
+                            
+                            <!-- メールアドレス -->
+                            <div>
+                                <label for="contact-email" class="block text-sm font-bold text-gray-700 mb-2">メールアドレス <span class="text-red-500 ml-1">*</span></label>
+                                <input type="email" id="contact-email" name="contact-email" required class="w-full md:w-2/3 lg:w-1/2 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-gray-50 hover:bg-white focus:bg-white">
+                            </div>
+                            
+                            <!-- メッセージ -->
+                            <div>
+                                <label for="contact-message" class="block text-sm font-bold text-gray-700 mb-2">ご相談内容・メッセージ <span class="text-red-500 ml-1">*</span></label>
+                                <textarea id="contact-message" name="contact-message" rows="8" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-gray-50 hover:bg-white focus:bg-white"></textarea>
+                            </div>
+                            
+                            <!-- プライバシーポリシー同意 -->
+                            <div class="flex items-start pt-6 border-t border-gray-100">
+                                <div class="flex items-center h-5 mt-0.5">
+                                    <input id="privacy" type="checkbox" required class="w-5 h-5 text-brand-600 border-gray-300 rounded focus:ring-brand-500 cursor-pointer">
+                                </div>
+                                <label for="privacy" class="ml-3 text-gray-700 cursor-pointer">
+                                    <a href="https://www.iisa.or.jp/j/privacy" target="_blank" class="text-brand-500 font-bold underline hover:text-brand-700 transition">プライバシーポリシー</a> が適用されます。同意の上、送信してください。
+                                </label>
+                            </div>
+
+                            <!-- 送信ボタン -->
+                            <div class="pt-6 pb-2">
+                                <button type="submit" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg py-4 px-12 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 w-full md:w-auto">
+                                    送信する
+                                </button>
+                                <p class="text-sm text-gray-400 mt-4 font-medium"><span class="text-red-500">*</span> は入力必須項目です</p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 連絡先セクション -->
+                    <div class="bg-brand-900 rounded-3xl p-12 text-white text-center shadow-2xl relative overflow-hidden">
+                        <div class="absolute -top-10 -left-10 w-48 h-48 bg-white/5 rounded-full pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 tracking-wider">NPO法人 石川県情報化支援協会</h3>
+                            <p class="text-xl font-medium mb-6">理事長　林 良隆</p>
+                            <p class="text-brand-100 opacity-80 mb-2">〒920-0922 石川県金沢市横山町21-16</p>
+                            <a href="mailto:info@iisa.or.jp" class="inline-block text-brand-500 font-bold hover:text-white transition duration-200 border-b-2 border-brand-500 text-lg">info@iisa.or.jp</a>
+                        </div>
                     </div>
                 </div>
 
-                <div id="tab-contact" class="tab-content hidden">
-                    <div class="bg-white p-16 rounded-3xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-5xl mb-4">✉️</div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">ご相談</h2>
-                        <p class="text-gray-500">こちらのコンテンツは現在準備中です。</p>
+                <!-- ========================================= -->
+                <!-- [タブ 6] 入会案内 コンテンツ                 -->
+                <!-- ========================================= -->
+                <div id="tab-join" class="tab-content hidden space-y-10">
+                    <!-- トップ紹介文 -->
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <h1 class="text-3xl font-bold border-l-6 border-brand-500 pl-6 mb-6 text-gray-800 tracking-tight">IISA入会のご案内</h1>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            NPO法人石川県情報化支援協会（IISA）では、私たちの目的に賛同して入会し、活動を推進する会員を募集しております。
+                        </p>
                     </div>
-                </div>
 
-                <div id="tab-join" class="tab-content hidden">
-                    <div class="bg-white p-16 rounded-3xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-5xl mb-4">🤝</div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">入会のご案内</h2>
-                        <p class="text-gray-500">こちらのコンテンツは現在準備中です。</p>
+                    <!-- 入会の手続き -->
+                    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-brand-100">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-8 border-b-2 border-gray-100 pb-4">入会の手続き</h2>
+                        
+                        <div class="space-y-6 mb-10">
+                            <!-- ステップ1 -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4 shadow-md">1</div>
+                                <div class="pt-1">
+                                    <h3 class="text-xl font-bold text-gray-800">入会届書のダウンロード</h3>
+                                    <p class="text-gray-600 mt-2 leading-relaxed">下記のボタンから「入会届書（様式）」をダウンロードしてください。</p>
+                                </div>
+                            </div>
+                            <!-- ステップ2 -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4 shadow-md">2</div>
+                                <div class="pt-1">
+                                    <h3 class="text-xl font-bold text-gray-800">必要事項の記入、押印</h3>
+                                    <p class="text-gray-600 mt-2 leading-relaxed">ダウンロードした用紙に必要事項をご記入いただき、押印をお願いします。</p>
+                                </div>
+                            </div>
+                            <!-- ステップ3 -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4 shadow-md">3</div>
+                                <div class="pt-1">
+                                    <h3 class="text-xl font-bold text-gray-800">メールで送付</h3>
+                                    <p class="text-gray-600 mt-2 leading-relaxed">記入・押印済みの書類をPDFにし、理事長宛て（<a href="mailto:info@iisa.or.jp" class="text-brand-500 font-bold hover:underline">info@iisa.or.jp</a>）にメールでご送付ください。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 補足事項 -->
+                        <div class="bg-brand-50 p-6 md:p-8 rounded-2xl border border-brand-100 text-brand-900 leading-relaxed mb-10 shadow-inner">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    入会の手続きは、入会届の提出のみです。<br>
+                                    届出書を確認後、入会金及び年会費の請求書をメールにて送付しますので、納付をお願いいたします。
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ダウンロードボタン -->
+                        <div class="text-center">
+                            <a href="https://www.iisa.or.jp/app/download/11999623291/IISA%E5%85%A5%E4%BC%9A%E5%B1%8A%E6%9B%B8%28%E6%A7%98%E5%BC%8F%29_Word_20220531%EF%BD%9E.doc" class="inline-flex items-center bg-white hover:bg-gray-50 text-brand-600 border-2 border-brand-500 font-bold text-lg py-4 px-8 md:px-12 rounded-full shadow-sm transition transform hover:-translate-y-1">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                入会届書（様式）をダウンロード
+                            </a>
+                            <p class="text-sm text-gray-500 mt-3 font-medium">Wordファイル（.doc）</p>
+                        </div>
+                    </div>
+
+                    <!-- 会員種別と会費 -->
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-bold border-l-6 border-brand-500 pl-4 text-gray-800 tracking-tight">会員の種別と会費</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 個人正会員 -->
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-brand-500 text-white text-sm font-bold px-5 py-1.5 rounded-bl-xl shadow-sm">正会員</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">個人正会員</h3>
+                                <p class="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100 min-h-[3rem]">この法人の目的に賛同して入会した個人</p>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg">
+                                        <span class="text-gray-600 font-bold">入会金</span>
+                                        <span class="text-xl font-bold text-brand-900">10,000<span class="text-sm font-normal ml-1">円</span></span>
+                                    </div>
+                                    <div class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg">
+                                        <span class="text-gray-600 font-bold">年会費</span>
+                                        <span class="text-xl font-bold text-brand-900">20,000<span class="text-sm font-normal ml-1">円</span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 法人正会員 -->
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-brand-700 text-white text-sm font-bold px-5 py-1.5 rounded-bl-xl shadow-sm">正会員</div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">法人正会員</h3>
+                                <p class="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100 min-h-[3rem]">この法人の目的に賛同して入会した法人</p>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg">
+                                        <span class="text-gray-600 font-bold">入会金</span>
+                                        <span class="text-xl font-bold text-brand-900">60,000<span class="text-sm font-normal ml-1">円</span></span>
+                                    </div>
+                                    <div class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg">
+                                        <span class="text-gray-600 font-bold">年会費</span>
+                                        <span class="text-xl font-bold text-brand-900">120,000<span class="text-sm font-normal ml-1">円</span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 賛助会員 -->
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">賛助会員</h3>
+                                <p class="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100 min-h-[3.5rem]">この法人の事業を賛助するために入会した法人</p>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center py-2">
+                                        <span class="text-gray-600 font-medium">入会金</span>
+                                        <span class="font-bold text-brand-900 text-right">法人正会員の半額<br><span class="text-sm text-gray-500 font-normal">(30,000円)</span></span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 border-t border-gray-50">
+                                        <span class="text-gray-600 font-medium">年会費</span>
+                                        <span class="font-bold text-brand-900 text-right">法人正会員の半額<br><span class="text-sm text-gray-500 font-normal">(60,000円)</span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 特別会員 -->
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">特別会員</h3>
+                                <p class="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100 min-h-[3.5rem]">教育関係及び公的機関で、この法人の目的、事業に賛同して入会した機関団体</p>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center py-2">
+                                        <span class="text-gray-600 font-medium">入会金</span>
+                                        <span class="text-lg font-bold text-gray-800">免除</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 border-t border-gray-50">
+                                        <span class="text-gray-600 font-medium">年会費</span>
+                                        <span class="text-lg font-bold text-gray-800">免除</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-sm font-bold text-gray-400 text-right mt-3 pr-2">（※現在、賛助会員、特別会員はいません）</p>
                     </div>
                 </div>
 
@@ -355,7 +707,7 @@
                 navLinks.forEach(link => {
                     if (link.dataset.target === targetId) {
                         // アクティブ状態 (PC)
-                        if(!link.classList.contains('block')) { // blockクラスがない=PCメニュー
+                        if(!link.classList.contains('block')) {
                             link.classList.remove('text-gray-600', 'border-transparent');
                             link.classList.add('text-brand-500', 'font-bold', 'border-brand-500');
                         } else {
@@ -383,21 +735,20 @@
             // クリックイベントの登録
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    // 他のページへのリンク(http始まりなど)は妨害しない
                     if (link.getAttribute('href').startsWith('#')) {
                         e.preventDefault();
                         const targetId = link.dataset.target;
                         
-                        // URLを更新 (戻るボタン対応、ページ内ジャンプによるスクロール防止)
+                        // URLを更新 (戻るボタン対応)
                         const hash = targetId.replace('tab-', '');
                         window.history.pushState(null, '', '#' + hash);
                         
                         activateTab(targetId);
                         
-                        // メインコンテンツの開始位置へスムーズにスクロール
+                        // ページ上部へスムーズスクロール
                         const mainElement = document.querySelector('main');
                         window.scrollTo({
-                            top: mainElement.offsetTop - 80, // ヘッダーの高さを考慮
+                            top: mainElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
                     }
@@ -409,12 +760,12 @@
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // ページ読み込み時の初期タブ設定 (URLのハッシュをチェック)
+            // ページ読み込み時の初期タブ設定
             const hash = window.location.hash.substring(1);
             if (hash && document.getElementById('tab-' + hash)) {
                 activateTab('tab-' + hash);
             } else {
-                activateTab('tab-home'); // デフォルトはホーム
+                activateTab('tab-home');
             }
         });
     </script>
